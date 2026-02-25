@@ -4,6 +4,8 @@
         <img src="https://img.shields.io/github/release/rios0rios0/rest-arch.svg?style=for-the-badge&logo=github" alt="Latest Release"/></a>
     <a href="https://github.com/rios0rios0/rest-arch/blob/main/LICENSE">
         <img src="https://img.shields.io/github/license/rios0rios0/rest-arch.svg?style=for-the-badge&logo=github" alt="License"/></a>
+    <a href="https://github.com/rios0rios0/rest-arch/actions/workflows/default.yaml">
+        <img src="https://img.shields.io/github/actions/workflow/status/rios0rios0/rest-arch/default.yaml?branch=main&style=for-the-badge&logo=github" alt="Build Status"/></a>
 </p>
 
 A RESTful architecture reference project built with Java and Spring Boot, demonstrating clean REST service patterns.
