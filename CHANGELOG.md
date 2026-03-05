@@ -20,6 +20,10 @@ Exceptions are acceptable depending on the circumstances (critical bug fixes tha
 
 - added GitHub Actions workflow for CI/CD pipeline
 
+### Fixed
+
+- fixed compilation error caused by missing external package `br.gov.ba.alba.app.config.exceptions` by creating a local `ObjectNotFoundException` class
+
 ### Removed
 
 - removed Travis CI configuration in favor of GitHub Actions

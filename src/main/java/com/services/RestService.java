@@ -1,6 +1,5 @@
 package com;
 
-import br.gov.ba.alba.app.config.exceptions.ObjectNotFoundException;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JavaType;
