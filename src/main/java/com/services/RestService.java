@@ -1,4 +1,4 @@
-package com;
+package com.services;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;

@@ -16,14 +16,30 @@ Exceptions are acceptable depending on the circumstances (critical bug fixes tha
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-03-13
+
 ### Added
 
 - added GitHub Actions workflow for CI/CD pipeline
 
+### Changed
+
+- changed Apache HttpComponents from `4.x` to `5.x` for compatibility with Spring Boot `3.x`
+- changed Java version from `1.8` to `21` to match CI environment
+- changed OkHttp from `4.9.2` to `4.12.0`, Guava from `32.0.0-jre` to `33.4.0-jre`, Joda-Time from `2.9.9` to `2.13.0`, JUnit from `4.13.1` to `4.13.2`
+- changed Spring Boot parent from `2.1.0.RELEASE` to `3.4.13` to resolve dependency vulnerabilities
+- changed dependency versions to use Spring Boot managed versions where possible (`spring-context-support`, Jackson, Gson)
+
 ### Fixed
 
-- fixed compilation error caused by missing external package `br.gov.ba.alba.app.config.exceptions` by creating a local `ObjectNotFoundException` class
+- fixed CI `maven-verify` and `sast:codeql` failures by removing `spring-boot-maven-plugin` since this is a library project, not a bootable application
+- fixed `CVE-2020-29582` false positive for `kotlin-stdlib` by adding a `dependency-check` suppression file
+- fixed `CVE-2025-68161` by overriding `log4j2.version` to `2.25.3` (Socket Appender TLS hostname verification)
+- fixed OWASP Dependency-Check build failure by adding the `dependency-check-maven` plugin with NVD API configuration
+- fixed Trivy SCA vulnerabilities by overriding tomcat (`10.1.52`), logback (`1.5.32`) and jackson-bom (`2.18.6`) managed versions
+- fixed package declarations in `RestService.java` and `ObjectNotFoundException.java` to match directory structure (`com.services` instead of `com`)
 
 ### Removed
 
 - removed Travis CI configuration in favor of GitHub Actions
+- removed `spring-boot-maven-plugin` from build configuration (unnecessary for a library project)
