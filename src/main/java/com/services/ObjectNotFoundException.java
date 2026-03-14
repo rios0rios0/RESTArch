@@ -1,4 +1,4 @@
-package com;
+package com.services;
 
 /**
  * Exception thrown when a requested object is not found in the remote service.

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
+    <!--
+        CVE-2020-29582: Incorrect default permissions in kotlin-stdlib createTempDir/createTempFile.
+        Fixed in Kotlin 1.4.21. Version 1.9.25 (transitive from Spring Boot) is not affected.
+        The scanner matches on CPE regardless of the fix version, producing a false positive.
+    -->
+    <suppress>
+        <notes><![CDATA[
+            False positive: CVE-2020-29582 was fixed in Kotlin 1.4.21.
+            kotlin-stdlib 1.9.25 is not vulnerable.
+        ]]></notes>
+        <packageUrl regex="true">^pkg:maven/org\.jetbrains\.kotlin/kotlin\-stdlib@.*$</packageUrl>
+        <cve>CVE-2020-29582</cve>
+    </suppress>
+</suppressions>
