@@ -16,6 +16,14 @@ Exceptions are acceptable depending on the circumstances (critical bug fixes tha
 
 ## [Unreleased]
 
+### Added
+
+- added `CLAUDE.md` with build commands, architecture notes, and conventions for Claude Code sessions
+
+### Changed
+
+- refreshed `.github/copilot-instructions.md` to reflect Java 21, Spring Boot 3.4, updated dependency versions, and library (non-bootable) project status
+
 ## [0.1.1] - 2026-04-15
 
 ### Changed

@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-`rest-arch` is a RESTful architecture reference project built with **Java 8** and **Spring Boot 2.1**. It provides an abstract `RestService<T>` base class that encapsulates common patterns for consuming REST APIs (GET, POST, JSON deserialization, error handling), intended to be extended by concrete service classes in applications that integrate with external REST backends.
+`rest-arch` is a RESTful architecture reference **library** built with **Java 21** and **Spring Boot 3.4**. It provides an abstract `RestService<T>` base class that encapsulates common patterns for consuming REST APIs (GET, POST, JSON deserialization, error handling), intended to be extended by concrete service classes in applications that integrate with external REST backends. This is a library JAR, not a bootable application — there is no `spring-boot-maven-plugin`.
 
 ## Repository Structure
 
@@ -13,7 +13,8 @@
 src/
   main/
     java/com/services/
-      RestService.java         # Abstract generic REST client base class
+      ObjectNotFoundException.java  # Custom exception for 404 responses
+      RestService.java              # Abstract generic REST client base class
     resources/
       application.properties   # Spring Boot application configuration (port 8080)
   test/
@@ -26,13 +27,13 @@ CHANGELOG.md                   # Version history following Keep a Changelog
 
 ## Technology Stack
 
-- **Language**: Java 8
-- **Framework**: Spring Boot 2.1.0.RELEASE (spring-boot-starter-web)
-- **Build**: Apache Maven 3.6+
-- **HTTP clients**: Spring `RestTemplate`, OkHttp 4.9.2, Apache HttpClient 4.5.x
-- **JSON**: Jackson Databind, Gson 2.8.9
-- **Utilities**: Guava 32.0.0-jre, Joda-Time 2.9.9
-- **Testing**: JUnit 4.13.1, spring-boot-starter-test
+- **Language**: Java 21
+- **Framework**: Spring Boot 3.4.13 (spring-boot-starter-web)
+- **Build**: Apache Maven
+- **HTTP clients**: Spring `RestTemplate`, OkHttp 5.3.2, Apache HttpComponents Client 5.x
+- **JSON**: Jackson Databind, Gson (Spring Boot managed)
+- **Utilities**: Guava 33.6.0-jre, Joda-Time 2.14.1
+- **Testing**: JUnit 4.13.2, spring-boot-starter-test
 - **CI/CD**: GitHub Actions — delegates to `rios0rios0/pipelines/.github/workflows/java-maven.yaml@main`
 
 ## Build, Test, and Run Commands
@@ -41,13 +42,10 @@ CHANGELOG.md                   # Version history following Keep a Changelog
 # Install dependencies and compile (runs tests by default)
 mvn clean install
 
-# Run only the test suite (~seconds on first run, faster on warm cache)
+# Run only the test suite
 mvn test
 
-# Start the Spring Boot application locally (listens on port 8080)
-mvn spring-boot:run
-
-# Package an executable JAR without running tests
+# Package the library JAR without running tests
 mvn package -DskipTests
 ```
 
@@ -61,16 +59,15 @@ mvn package -DskipTests
 
 ## CI/CD Pipeline
 
-The `.github/workflows/default.yaml` triggers on pushes and PRs to `main` and on all tags. It reuses the organisation-wide reusable workflow at `rios0rios0/pipelines/.github/workflows/java-maven.yaml@main`, which handles compilation, testing, and artefact publishing automatically.
+The `.github/workflows/default.yaml` triggers on pushes and PRs to `main`, on all tags, and on manual dispatch. It reuses the organisation-wide reusable workflow at `rios0rios0/pipelines/.github/workflows/java-maven.yaml@main`, which handles compilation, testing, and artefact publishing automatically.
 
 ## Development Workflow
 
 1. Fork the repository and create a feature branch: `git checkout -b feat/my-change`
 2. Build and verify: `mvn clean install`
-3. Run the application locally: `mvn spring-boot:run`
-4. Run tests: `mvn test`
-5. Commit using [Conventional Commits](https://www.conventionalcommits.org/) (`feat:`, `fix:`, `chore:`, etc.) following the [rios0rios0 Git Flow guide](https://github.com/rios0rios0/guide/wiki/Life-Cycle/Git-Flow)
-6. Open a pull request against `main`
+3. Run tests: `mvn test`
+4. Commit using [Conventional Commits](https://www.conventionalcommits.org/) (`feat:`, `fix:`, `chore:`, etc.) following the [rios0rios0 Git Flow guide](https://github.com/rios0rios0/guide/wiki/Life-Cycle/Git-Flow)
+5. Open a pull request against `main`
 
 ## Coding Conventions
 
