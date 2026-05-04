@@ -16,6 +16,10 @@ Exceptions are acceptable depending on the circumstances (critical bug fixes tha
 
 ## [Unreleased]
 
+### Changed
+
+- refreshed `CLAUDE.md` and `.github/copilot-instructions.md` to correct Joda-Time version (2.14.1 → 2.14.2) and CI reusable workflow name (`java-maven.yaml` → `maven-library.yaml`)
+
 ## [0.2.1] - 2026-04-29
 
 ### Changed
