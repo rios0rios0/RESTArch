@@ -21,6 +21,11 @@ Exceptions are acceptable depending on the circumstances (critical bug fixes tha
 ### Changed
 
 - changed the Java dependencies to their latest versions
+- bumped `spring-boot-starter-parent` from `3.4.13` to `3.5.14` to remediate `CVE-2026-22731`, `CVE-2026-22733`, `CVE-2026-40972`, `CVE-2026-40973`, `CVE-2026-40975`, `CVE-2026-40977` (Spring Boot) and the transitive `log4j-api` `2.24.1` CVEs (`CVE-2026-34478`, `CVE-2026-34479`, `CVE-2026-34480`, `CVE-2026-34481`, `CVE-2025-68161`)
+
+### Removed
+
+- removed the broken `log4j2.version` property override (`3.0.0-beta3`) that Spring Boot was silently ignoring; the parent BOM now manages `log4j` at a non-vulnerable version
 
 ## [0.2.1] - 2026-04-29
 
