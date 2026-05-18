@@ -32,9 +32,9 @@ CHANGELOG.md                   # Version history following Keep a Changelog
 - **Build**: Apache Maven
 - **HTTP clients**: Spring `RestTemplate`, OkHttp 5.3.2, Apache HttpComponents Client 5.x
 - **JSON**: Jackson Databind, Gson (Spring Boot managed)
-- **Utilities**: Guava 33.6.0-jre, Joda-Time 2.14.1
+- **Utilities**: Guava 33.6.0-jre, Joda-Time 2.14.2
 - **Testing**: JUnit 4.13.2, spring-boot-starter-test
-- **CI/CD**: GitHub Actions — delegates to `rios0rios0/pipelines/.github/workflows/java-maven.yaml@main`
+- **CI/CD**: GitHub Actions — delegates to `rios0rios0/pipelines/.github/workflows/maven-library.yaml@main`
 
 ## Build, Test, and Run Commands
 
@@ -59,7 +59,7 @@ mvn package -DskipTests
 
 ## CI/CD Pipeline
 
-The `.github/workflows/default.yaml` triggers on pushes and PRs to `main`, on all tags, and on manual dispatch. It reuses the organisation-wide reusable workflow at `rios0rios0/pipelines/.github/workflows/java-maven.yaml@main`, which handles compilation, testing, and artefact publishing automatically.
+The `.github/workflows/default.yaml` triggers on pushes and PRs to `main`, on all tags, and on manual dispatch. It reuses the organisation-wide reusable workflow at `rios0rios0/pipelines/.github/workflows/maven-library.yaml@main`, which handles compilation, testing, and artefact publishing automatically.
 
 ## Development Workflow
 
